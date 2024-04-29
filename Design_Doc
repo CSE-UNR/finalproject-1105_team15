@@ -1,2 +1,17 @@
-Jack Smith & Ryleigh Romano
+Jack Smith & Ryleigh Romero
+Design Document for Connect 4
 
+Project Layout: 
+    The program starts by displaying a menu with three options: Play Game, Load Game, and Exit.
+    If the user chooses to play a game:
+    a. They are prompted to enter their name and their opponent's name.
+    b. The game begins with an empty Connect 4 board displayed.
+    c. Players take turns making moves by entering a column number (1-7) where they want to drop their piece. They can also choose to save and quit by entering 0.
+    d. After each move, the board is displayed, and the program checks for a win or tie condition.
+    e. If a win or tie is detected, the game ends, and the user is returned to the main menu.
+    If the user chooses to load a game:
+    a. The program loads the saved game from the "saved_game.txt" file.
+    b. The game resumes from where it was saved, and players continue making moves as described above.
+    c. After the game ends, the user is returned to the main menu.
+    If the user chooses to exit the program:
+    a. The program displays a goodbye message and terminates.
