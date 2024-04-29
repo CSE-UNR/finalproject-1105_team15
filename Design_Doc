@@ -15,3 +15,47 @@ Project Layout:
     c. After the game ends, the user is returned to the main menu.
     If the user chooses to exit the program:
     a. The program displays a goodbye message and terminates.
+    
+Functions:
+
+1. initializeBoard():
+   This function initializes the game board by filling each cell with a hyphen (-), representing an empty space.
+
+2. displayBoard():
+   This function displays the current state of the game board on the console, showing the positions of all pieces.
+
+3. isMoveValid():
+	data: int col
+   This function checks if a move is valid by verifying whether the selected column is within the bounds of the board and if there is space in that column to place a piece.
+
+4. isBoardFull():
+   This function checks if the game board is completely filled with pieces, indicating a tie if true.
+
+5. checkWin():
+   - This function checks if the current player has won the game by examining the board for any winning combinations horizontally, vertically, or diagonally.
+
+6. switchPlayer():
+   - This function toggles the current player between 'X' and 'O' after each turn.
+
+7. saveGame():
+	data: const char *filename
+   This function saves the current state of the game board and the current player to a file specified by the `filename` parameter.
+
+8. loadGame():
+	data: const char *filename
+   This function loads a previously saved game state from the file specified by the `filename` parameter, restoring the game board and current player.
+
+9. `updateScores(char winner)`:
+   - This function updates the scores array and players array based on the winner of the current game. It also keeps track of the winning streak of each player and updates the scores accordingly.
+
+10. `displayScores()`:
+    - This function displays the top 10 players and their scores in descending order.
+
+11. `playGame()`:
+    - This function represents the core gameplay loop. It manages player turns, checks for win or tie conditions, allows players to save and quit, and updates scores after each game.
+
+12. `menu()`:
+    - This function displays the main menu of the game and handles user input to start a new game, load a saved game, or exit the program.
+    
+    
+    
