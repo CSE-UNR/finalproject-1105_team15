@@ -1,0 +1,45 @@
+Jack Smith and Ryleigh Romero
+Data: FilePointer, char string, int num, File, int choice, int startrow, int startcol, int endrow, int endcol, int col, int row, 
+
+Functions:
+main()
+Data: int num, File, Filepointer, int row, int collumn
+Function: has a loop to run through the code and then has the exit statements
+Print_Menu()
+	Input Parameters: none
+	Returned output:int choice
+	Function: creates the menu that will be displayed to the user
+Load_Image()
+	Input Parameters: char string;
+	Returned Output: nothing
+	Function: opens the file indicated by the user or displays an error message
+Display_Image()
+	Input Parameters: Filepointer
+	Returned Output:none
+	Function: this function converts the image to characters and then displays the image
+Edit_Menu ()
+	Input Parameters: none
+	Returned Output: none
+	Function: This displays the menu for the editing selection and then does what the user has requested
+Crop_Image()
+	Input Parameters: File pointer
+	Returned Output:none
+	Function: This will crop the image by selecting the starting row and end row and starting collumn and ending collumn to crop the image by. It then saves the new image.
+Dim_Image()
+	Input Parameters:
+	Returned Output:
+	Function: iterates over the file and subtracts the numbers in the array by 1 as long as it's not already 0
+Brighten_Image()
+	Input Parameters:filepointer
+	Returned Output:none
+	Function:Iterates over the file and adds 1 to each number in the array as long as it's not already 4
+Rotate_Image()
+	Input Parameters:filepointer
+	Returned Output: none
+	Function: flips the row and collumn sizes to then save what was in the rows into the collumns and vice versa
+Save_Image()
+	Input Parameters:
+	Returned Output:
+	Function: allows the user to input a name to save the new image in a file as and then save the image in that file. 
+
+
