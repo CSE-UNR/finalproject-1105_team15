@@ -27,23 +27,27 @@ void load_image() {
     char filename[50];
     FILE *file;
     int image[IMAGE_SIZE][IMAGE_SIZE];
+    char y;
+  	 y = 1;
+   	do {
     printf("Enter the filename of the image: ");
     scanf("%s", filename);
    printf("\n");
    file = fopen(filename, "r");
     if (file == NULL) {
         printf("Unable to open file.\n");
-        return;
-    }
+        return;}
+     y=3; } while (y =='1');
     int rows = 0;
     int cols = 0;
 // Read the image data into the matrix
-    while (fscanf(file, "%d", &image[rows][cols]) == 1) {
+//add an if function
+    if (rows != '\n';) {
         cols++;
         if (cols == IMAGE_SIZE) {
             rows++;
             cols = 0;
-        }
+        } }
         if (rows == IMAGE_SIZE) {
             printf("Error: Image exceeds maximum size.\n");
             fclose(file);
@@ -56,8 +60,8 @@ void load_image() {
             //}
         }
     }
-    fclose(file);
     printf("Image loaded!\n");
+      fclose(file);
 }
 
 void display_image() {
@@ -211,8 +215,8 @@ void save_image() {
 //}
 
 int main() {
-	char choice = print_menu();
-    do {
+	char choice; 
+    do {choice = print_menu();
         switch (choice) {
             case '1':
                 load_image();
