@@ -20,6 +20,10 @@ char print_menu() {
     printf("1. Load a new image\n2. Display the current image\n3. Edit the current image\n4. Exit the program\n");
     printf("Enter your choice: ");
     scanf(" %c", &c);
+    
+       int clear_buffer;
+    while ((clear_buffer = getchar()) != '\n' && clear_buffer != EOF);
+
     return c;
 }
 
@@ -28,47 +32,64 @@ void load_image() {
     FILE *file;
     int image[IMAGE_SIZE][IMAGE_SIZE];
     char y;
-  	 y = 1;
+  	 y = '1';
    	do {
-    printf("Enter the filename of the image: ");
-    scanf("%s", filename);
-   printf("\n");
-   file = fopen(filename, "r");
+   		 printf("Enter the filename of the image: ");
+    	fgets(filename, 50, stdin); // Use fgets for filenames
+          for (int i = 0; filename[i] != '\0'; ++i) {
+            if (filename[i] == '\n') {
+                filename[i] = '\0';
+                break;
+            }
+        }
+  		printf("\n");
+   		file = fopen(filename, "r");
     if (file == NULL) {
         printf("Unable to open file.\n");
-        return;}
-     y=3; } while (y =='1');
+        return;
+        }
+    
     int rows = 0;
     int cols = 0;
 // Read the image data into the matrix
-//add an if function
-    if (rows != '\n';) {
-        cols++;
-        if (cols == IMAGE_SIZE) {
-            rows++;
-            cols = 0;
-        } }
-        if (rows == IMAGE_SIZE) {
-            printf("Error: Image exceeds maximum size.\n");
-            fclose(file);
-    //for (int i = 0; i < IMAGE_SIZE; i++) {
-        //for (int j = 0; j < IMAGE_SIZE; j++) {
-           // if (fscanf(file, "%d", &current_image[i][j]) != 1) {
-              //  printf("Invalid format in file.\n");
-               // fclose(file);
-               // return;
-            //}
+    int value;
+        while (fscanf(file, "%d", &value) == 1) {
+            if (rows < IMAGE_SIZE && cols < IMAGE_SIZE) {
+                current_image[rows][cols] = value;
+                cols++;
+                if (cols == IMAGE_SIZE) {
+                    rows++;
+                    cols = 0;
+                }
+            } else {
+                printf("Error: Image exceeds maximum size.\n");
+                break;
+            }
         }
-    }
-    printf("Image loaded!\n");
+        
       fclose(file);
-}
+      printf("Image loaded!\n");
+      printf("Do you want to load another image? (1 for yes, any other key for no): ");
+      scanf(" %c", &y);
+      
+      int clear_buffer;
+        while ((clear_buffer = getchar()) != '\n' && clear_buffer != EOF);
+		rows = 0;
+		cols = 0; 	  
+   }
+      while (y =='1');
+      }
 
 void display_image() {
     printf("Displaying image:\n");
     for (int i = 0; i < IMAGE_SIZE; i++) {
         for (int j = 0; j < IMAGE_SIZE; j++) {
-            printf("%c", character_map[current_image[i][j]]);
+           if (i >= 0 && i < IMAGE_SIZE && j >= 0 && j < IMAGE_SIZE) {
+                printf("%c", character_map[current_image[i][j]]);
+            } else {
+                printf("Error: Index out of bounds.\n");
+                return; // Exit function if index is out of bounds
+            }
         }
         printf("\n");
     }
