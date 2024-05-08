@@ -1,7 +1,7 @@
 // Jack Smith & Ryleigh Romero
 #include <stdio.h>
 
-#define IMAGE_SIZE 250
+#define IMAGE_SIZE 25
 #define character_map_size 5
 
 //char character_map[character_map_size] = {' ', '.', 'o', 'O', '0'};
@@ -22,8 +22,7 @@ char print_menu() {
     scanf(" %c", &c);
     return c;
 }
-
-void load_image(char image[][IMAGE_SIZE]) {
+    void load_image(int image[][IMAGE_SIZE]) {
     char filename[50];
     FILE *file;
    printf("Enter the filename of the image: ");
@@ -57,29 +56,29 @@ void load_image(char image[][IMAGE_SIZE]) {
       fclose(file); 
       printf("Image loaded!\n");
       }
-    
-void display_image(char image[][IMAGE_SIZE]) {
+
+void display_image(int image[][IMAGE_SIZE]) {
     printf("Displaying image:\n");
     for (int i = 0; i < IMAGE_SIZE; i++) {
         for (int j = 0; j < IMAGE_SIZE; j++) {
         if (image[i][j] == 0) {
         printf(" ");
         }
-        else if (image[i][j] == 1) {
+        else if (image[i][j] == '1') {
         printf(".");
         }
-        else if (image[i][j] == 2) {
+        else if (image[i][j] == '2') {
         printf("o");
         }
-        else if (image[i][j] == 3) {
+        else if (image[i][j] == '3') {
         printf("O");
         }
-        else if(image[i][j] == 4) {
+        else if(image[i][j] == '4') {
         printf("0");
         }
         else{
-        printf("?");
-        }
+        printf(" ");
+       }
       // char index = image[i][j]; 
            // switch (index) {
             //    case 0:
@@ -100,10 +99,9 @@ void display_image(char image[][IMAGE_SIZE]) {
            //    default:
                   //  image[i][j] = '?';  
                    // break;
-            }
-      printf("\n"); }     
-    }   
-    
+          }
+         printf("\n"); }     
+    }
 void edit_menu() {
     while (1) {
         printf("\nEdit Menu:\n1. Crop\n2. Dim\n3. Brighten\n4. Rotate 90 Degrees\n5. Save image\n6. Return to main menu\n");
@@ -248,11 +246,11 @@ void save_image() {
 
 int main() {
 	char choice; 
-	char image[IMAGE_SIZE][IMAGE_SIZE]={0};
+	int image[IMAGE_SIZE][IMAGE_SIZE]={0};
     do {choice = print_menu();
         switch (choice) {
             case '1':
-                load_image(image);
+   		load_image(image);
                 break;
             case '2':
                 display_image(image);
