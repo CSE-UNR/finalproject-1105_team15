@@ -61,7 +61,7 @@ void display_image(int image[][IMAGE_SIZE]) {
     printf("Displaying image:\n");
     for (int i = 0; i < IMAGE_SIZE; i++) {
         for (int j = 0; j < IMAGE_SIZE; j++) {
-        if (image[i][j] == 0) {
+        if (image[i][j] == '0') {
         printf(" ");
         }
         else if (image[i][j] == '1') {
@@ -77,7 +77,7 @@ void display_image(int image[][IMAGE_SIZE]) {
         printf("0");
         }
         else{
-        printf(" ");
+        printf("?");
        }
       // char index = image[i][j]; 
            // switch (index) {
